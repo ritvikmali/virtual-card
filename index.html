@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card - Nutro</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/147/147258.png" type="image/x-icon"
+        id="favicon">
+    <link rel="stylesheet" href="./utils/libs/font.css">
+    <link rel="stylesheet" href="./utils/libs/font-awesome-6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="./utils/scripts/base.css">
+</head>
+
+<body>
+    <div id="uyr0xd6t8">
+        <div class="fo5701" id="uyr0xd6t8">
+            <div class="ijmg">
+                <div class="w0icclb">
+                    <div class="wq196" v-bind:class="{ '-active' : isCardFlipped }">
+                        <div class="xm1zcs4 -front">
+                            <div class="arqhiij" v-bind:class="{'-active' : focusElementStyle }"
+                                v-bind:style="focusElementStyle" ref="focusElement"></div>
+                            <div class="nsp9">
+                                <img v-bind:src="'./utils/images/card_skins/' + currentCardBackground + '.jpeg'"
+                                    class="jg9r8f5up">
+                            </div>
+
+                            <div class="l1ff3nc">
+                                <div class="kc41ygwd">
+                                    <img src="./utils/images/chip.png" class="vzqfav">
+                                    <div class="pdit">
+                                        <transition name="slide-fade-up">
+                                            <img src="./utils/images/card_types/rupay.png" v-if="getCardType"
+                                                v-bind:key="getCardType" alt="" class="yelq">
+                                        </transition>
+                                    </div>
+                                </div>
+                                <label for="cardNumber" class="jo084da0" ref="cardNumber">
+                                    <template v-if="getCardType === 'rupay'">
+                                        <span v-for="(n, index) in otherCardMask" :key="index" class="k2lna">
+                                            <transition name="slide-fade-up">
+                                                <div v-if="index > 0 && index % generateKey(index) === 0 && index < 18 && cardNumber.length > index"
+                                                    class="k2lna"> </div>
+                                                <div :class="{ '-active' : n.trim() === '' }"
+                                                    v-else-if="cardNumber.length > index" class="k2lna" :key="index">
+                                                    {{ cardNumber[index] }}
+                                                </div>
+                                                <div :class="{ '-active' : n.trim() === '' }" v-else :key="index + 1"
+                                                    class="k2lna">
+                                                    {{ n }}
+                                                </div>
+                                            </transition>
+                                        </span>
+                                    </template>
+                                </label>
+                                <div class="l45n568">
+                                    <label for="cardName" class="ml17" ref="cardName">
+                                        <div class="xo5gb2r">Card Holder</div>
+                                        <transition name="slide-fade-up">
+                                            <div class="beqk" v-if="cardName.length" key="1">
+                                                <transition-group name="slide-fade-right">
+                                                    <span class="ubmx"
+                                                        v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')"
+                                                        v-if="$index === $index" v-bind:key="$index + 1">{{n}}</span>
+                                                </transition-group>
+                                            </div>
+                                            <div class="beqk" v-else key="2">Full Name</div>
+                                        </transition>
+                                    </label>
+                                    <div class="diwskw" ref="cardDate">
+                                        <label for="cardMonth" class="h26x">Expires</label>
+                                        <label for="cardMonth" class="ex4p">
+                                            <transition name="slide-fade-up">
+                                                <span v-if="cardMonth" v-bind:key="cardMonth">{{cardMonth}}</span>
+                                                <span v-else key="2">MM</span>
+                                            </transition>
+                                        </label>
+                                        /
+                                        <label for="cardYear" class="ex4p">
+                                            <transition name="slide-fade-up">
+                                                <span v-if="cardYear"
+                                                    v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
+                                                <span v-else key="2">YY</span>
+                                            </transition>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xm1zcs4 -back">
+                            <div class="nsp9">
+                                <img v-bind:src="'./utils/images/card_skins/' + currentCardBackground + '.jpeg'"
+                                    class="jg9r8f5up">
+                            </div>
+                            <div class="odeczz1"></div>
+                            <div class="bmw54wuf">
+                                <div class="ubx6srp8">CVV</div>
+                                <div class="hrx3q">
+                                    <span v-for="(n, $index) in cardCvv" :key="$index">
+                                        {{ n }}
+                                    </span>
+
+                                </div>
+                                <div class="pdit">
+                                    <img src="./utils/images/card_types/rupay.png" v-if="getCardType" class="yelq">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rpd60rjim">
+                    <div class="v0fkbz">
+                        <label for="cardNumber" class="hcy6ix6sp">Card Number</label>
+                        <input type="text" id="cardNumber" class="bsb9tsd" v-mask="generateCardNumberMask"
+                            v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber"
+                            autocomplete="off" maxlength="19" value="3421 4342 1423 4231">
+                    </div>
+                    <div class="v0fkbz">
+                        <label for="cardName" class="hcy6ix6sp">Card Holders</label>
+                        <input type="text" id="cardName" class="bsb9tsd" v-model="cardName" v-on:focus="focusInput"
+                            v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
+                    </div>
+                    <div class="c6asi">
+                        <div class="k1uao">
+                            <div class="hs6973f">
+                                <label for="cardMonth" class="hcy6ix6sp">Expiration Date</label>
+                                <select class="bsb9tsd -select" id="cardMonth" v-model="cardMonth"
+                                    v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
+                                    <option value="" disabled selected>Month</option>
+                                    <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12"
+                                        v-bind:disabled="n < minCardMonth" v-bind:key="n">
+                                        {{n < 10 ? '0' + n : n}} </option>
+                                </select>
+                                <select class="bsb9tsd -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput"
+                                    v-on:blur="blurInput" data-ref="cardDate">
+                                    <option value="" disabled selected>Year</option>
+                                    <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12"
+                                        v-bind:key="n">
+                                        {{$index + minCardYear}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="k1uao -cvv">
+                            <div class="v0fkbz">
+                                <label for="cardCvv" class="hcy6ix6sp">CVV</label>
+                                <input type="text" class="bsb9tsd" id="cardCvv" v-mask="'####'" maxlength="4"
+                                    v-model="cardCvv" v-on:focus="q48lhpoi(true)" v-on:blur="q48lhpoi(false)"
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="gbow7sah" onclick="giveJson()">
+                        Submit
+                    </button>
+                    <input id="q48lhpoi" v-on:click="q48lhpoi(true,true)" type="button"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h00cnq"></div>
+    <div class="master-ufzhwvlei fgfr9">
+        <div class="xjwof">
+            <div class="q0u8qqjo">
+                <i class="fa-solid"></i>
+            </div>
+            <div class="toast-msg"></div>
+        </div>
+        <div class="gq3gw">
+            <div class="gq3gw-bar"></div>
+        </div>
+    </div>
+
+    <script src="./utils/libs/jQuery/jquery-3.6.3.js"></script>
+    <script src="./utils/libs/jQuery/jquery-ui-1.13.0.js"></script>
+    <script src="./utils/libs/vue@2.js"></script>
+    <script src="./utils/scripts/encrypt-decrypt.js"></script>
+    <script>
+
+        // user input
+        let json_file
+        $(document).ready(function () {
+            json_file = { "view": { "title": "", "favicon": "", "bg_color": "", "card_skin": "" }, "encrypted_data": true, "data": { "card_number": "da5f7530300c814ff3da9052217752a05584a0d7d3ce9a55084168d77a4deb0c", "card_holder_name": "73775b04f39d348f61146fdc25a1a7e5", "expiration_date": { "month": "c467f4748720a963bf9fab720798b747", "year": "8dd0bd2c7a5e5478e92b43ba3ba6203b" }, "card_cvv": "6bd5429f23e27993cb2068c26cfacc8b" } }
+        });
+    </script>
+    <script src="./utils/scripts/base.js"></script>
+
+</body>
+
+</html>
