@@ -7,9 +7,10 @@
     <title>Card - Nutro</title>
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/147/147258.png" type="image/x-icon"
         id="favicon">
-    <link rel="stylesheet" href="./utils/libs/font.css">
-    <link rel="stylesheet" href="./utils/libs/font-awesome-6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="./utils/scripts/base.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/libs/font.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/libs/font-awesome-6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/scripts/base.css">
 </head>
 
 <body>
@@ -22,17 +23,18 @@
                             <div class="arqhiij" v-bind:class="{'-active' : focusElementStyle }"
                                 v-bind:style="focusElementStyle" ref="focusElement"></div>
                             <div class="nsp9">
-                                <img v-bind:src="'./utils/images/card_skins/' + currentCardBackground + '.jpeg'"
+                                <img v-bind:src="'https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/images/card_skins/' + currentCardBackground + '.jpeg'"
                                     class="jg9r8f5up">
                             </div>
 
                             <div class="l1ff3nc">
                                 <div class="kc41ygwd">
-                                    <img src="./utils/images/chip.png" class="vzqfav">
+                                    <img src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/images/chip.png"
+                                        class="vzqfav">
                                     <div class="pdit">
                                         <transition name="slide-fade-up">
-                                            <img src="./utils/images/card_types/rupay.png" v-if="getCardType"
-                                                v-bind:key="getCardType" alt="" class="yelq">
+                                            <img src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/images/card_types/rupay.png"
+                                                v-if="getCardType" v-bind:key="getCardType" alt="" class="yelq">
                                         </transition>
                                     </div>
                                 </div>
@@ -90,7 +92,7 @@
                         </div>
                         <div class="xm1zcs4 -back">
                             <div class="nsp9">
-                                <img v-bind:src="'./utils/images/card_skins/' + currentCardBackground + '.jpeg'"
+                                <img v-bind:src="'https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/images/card_skins/' + currentCardBackground + '.jpeg'"
                                     class="jg9r8f5up">
                             </div>
                             <div class="odeczz1"></div>
@@ -103,7 +105,8 @@
 
                                 </div>
                                 <div class="pdit">
-                                    <img src="./utils/images/card_types/rupay.png" v-if="getCardType" class="yelq">
+                                    <img src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/images/card_types/rupay.png"
+                                        v-if="getCardType" class="yelq">
                                 </div>
                             </div>
                         </div>
@@ -172,19 +175,20 @@
         </div>
     </div>
 
-    <script src="./utils/libs/jQuery/jquery-3.6.3.js"></script>
-    <script src="./utils/libs/jQuery/jquery-ui-1.13.0.js"></script>
-    <script src="./utils/libs/vue@2.js"></script>
-    <script src="./utils/scripts/encrypt-decrypt.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/libs/jQuery/jquery-3.6.3.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/libs/jQuery/jquery-ui-1.13.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/libs/vue@2.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/scripts/encrypt-decrypt.js"></script>
     <script>
 
         // user input
         let json_file
         $(document).ready(function () {
-            json_file = { "view": { "title": "", "favicon": "", "bg_color": "", "card_skin": "" }, "encrypted_data": true, "data": { "card_number": "da5f7530300c814ff3da9052217752a05584a0d7d3ce9a55084168d77a4deb0c", "card_holder_name": "73775b04f39d348f61146fdc25a1a7e5", "expiration_date": { "month": "c467f4748720a963bf9fab720798b747", "year": "8dd0bd2c7a5e5478e92b43ba3ba6203b" }, "card_cvv": "6bd5429f23e27993cb2068c26cfacc8b" } }
+            json_file = { "view": { "title": "", "favicon": "", "bg_color": "", "card_skin": "" }, "encrypted_data": true, "data": { "card_number": "a7c90d9235ae8bfbd94eb7c1dd64f184e2af692df66e9168a065a4bd9832645c", "card_holder_name": "73775b04f39d348f61146fdc25a1a7e5", "expiration_date": { "month": "c467f4748720a963bf9fab720798b747", "year": "8dd0bd2c7a5e5478e92b43ba3ba6203b" }, "card_cvv": "be110b251c4e09e46c8f850c9d4ffb06" } }
         });
     </script>
-    <script src="./utils/scripts/base.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ritvikmali/virtual_card@master/utils/scripts/base.js"></script>
 
 </body>
 
